@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityPulse - Feedback & Citizen Connect</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/feedback.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🏙️</span>
+                <span class="logo-text">CityPulse</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="alerts.html">City Alerts</a></li>
+                <li><a href="map.html">City Map</a></li>
+                <li><a href="feedback.html" class="active">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="page-header">
+            <h1>Feedback & Citizen Connect</h1>
+            <p class="subtitle">Share your thoughts and help improve our city</p>
+        </header>
+
+        <div class="feedback-container">
+            <div class="feedback-info">
+                <h2>We Value Your Voice</h2>
+                <p>Your feedback helps us build a better, smarter city. Share your opinions, report issues, or suggest improvements.</p>
+                
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-icon">📧</div>
+                        <h3>Email Us</h3>
+                        <p>contact@citypulse.gov</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <h3>Call Us</h3>
+                        <p>1-800-CITY-PULSE</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🕒</div>
+                        <h3>Response Time</h3>
+                        <p>Within 24-48 hours</p>
+                    </div>
+                </div>
+
+                <div class="social-connect">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-btn facebook">📘 Facebook</a>
+                        <a href="#" class="social-btn twitter">🐦 Twitter</a>
+                        <a href="#" class="social-btn instagram">📷 Instagram</a>
+                        <a href="#" class="social-btn linkedin">💼 LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feedback-form-container">
+                <form id="feedbackForm" class="feedback-form">
+                    <h2>Submit Your Feedback</h2>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" name="category">
+                            <option value="general">General Feedback</option>
+                            <option value="traffic">Traffic & Transportation</option>
+                            <option value="health">Health Services</option>
+                            <option value="environment">Environment</option>
+                            <option value="infrastructure">Infrastructure</option>
+                            <option value="complaint">Complaint</option>
+                            <option value="suggestion">Suggestion</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Tell us what's on your mind..." required></textarea>
+                        <span class="error-message" id="messageError"></span>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Feedback</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-modal">
+            <div class="success-icon">✓</div>
+            <h2>Thank You!</h2>
+            <p>Your feedback has been successfully submitted. We appreciate your input and will review it shortly.</p>
+            <div class="modal-social">
+                <p>Stay connected with us:</p>
+                <div class="modal-social-links">
+                    <a href="#" class="modal-social-btn">📘</a>
+                    <a href="#" class="modal-social-btn">🐦</a>
+                    <a href="#" class="modal-social-btn">📷</a>
+                    <a href="#" class="modal-social-btn">💼</a>
+                </div>
+            </div>
+            <button class="modal-close-btn" id="closeSuccessModal">Close</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 CityPulse. Smart City Information Dashboard. All Rights Reserved.</p>
+    </footer>
+
+    <script src="scripts/feedback.js"></script>
+</body>
+</html>

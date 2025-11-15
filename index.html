@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityPulse - Home Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🏙️</span>
+                <span class="logo-text">CityPulse</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Dashboard</a></li>
+                <li><a href="alerts.html">City Alerts</a></li>
+                <li><a href="map.html">City Map</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="page-header">
+            <h1>Smart City Dashboard</h1>
+            <p class="subtitle">Real-time civic awareness and data visualization</p>
+        </header>
+
+        <div class="datetime-display">
+            <div class="date" id="currentDate"></div>
+            <div class="time" id="currentTime"></div>
+        </div>
+
+        <section class="dashboard-grid">
+            <!-- Temperature Card -->
+            <div class="data-card temperature-card">
+                <div class="card-icon">🌡️</div>
+                <div class="card-content">
+                    <h3>Temperature</h3>
+                    <div class="card-value" id="temperature">--°C</div>
+                    <div class="card-subtitle" id="tempDesc">Loading...</div>
+                </div>
+                <div class="card-visual">
+                    <div class="temp-meter">
+                        <div class="temp-fill" id="tempFill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Air Quality Card -->
+            <div class="data-card aqi-card">
+                <div class="card-icon">💨</div>
+                <div class="card-content">
+                    <h3>Air Quality Index</h3>
+                    <div class="card-value" id="aqi">--</div>
+                    <div class="card-subtitle" id="aqiDesc">Loading...</div>
+                </div>
+                <div class="card-visual">
+                    <div class="aqi-meter">
+                        <div class="aqi-fill" id="aqiFill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Traffic Card -->
+            <div class="data-card traffic-card">
+                <div class="card-icon">🚦</div>
+                <div class="card-content">
+                    <h3>Traffic Density</h3>
+                    <div class="card-value" id="traffic">--</div>
+                    <div class="card-subtitle" id="trafficDesc">Loading...</div>
+                </div>
+                <div class="card-visual">
+                    <div class="traffic-bars">
+                        <div class="bar" id="bar1"></div>
+                        <div class="bar" id="bar2"></div>
+                        <div class="bar" id="bar3"></div>
+                        <div class="bar" id="bar4"></div>
+                        <div class="bar" id="bar5"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Population Card -->
+            <div class="data-card population-card">
+                <div class="card-icon">👥</div>
+                <div class="card-content">
+                    <h3>Population</h3>
+                    <div class="card-value" id="population">--</div>
+                    <div class="card-subtitle">Active Citizens</div>
+                </div>
+            </div>
+
+            <!-- Public Transport Card -->
+            <div class="data-card transport-card">
+                <div class="card-icon">🚌</div>
+                <div class="card-content">
+                    <h3>Public Transport</h3>
+                    <div class="card-value" id="transport">--</div>
+                    <div class="card-subtitle" id="transportDesc">Routes Active</div>
+                </div>
+            </div>
+
+            <!-- Emergency Services Card -->
+            <div class="data-card emergency-card">
+                <div class="card-icon">🚨</div>
+                <div class="card-content">
+                    <h3>Emergency Services</h3>
+                    <div class="card-value" id="emergency">All Clear</div>
+                    <div class="card-subtitle">24/7 Available</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <h2>City Statistics Overview</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Parks & Recreation</div>
+                    <div class="stat-value" id="parks">--</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Hospitals</div>
+                    <div class="stat-value" id="hospitals">--</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Schools</div>
+                    <div class="stat-value" id="schools">--</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Shopping Centers</div>
+                    <div class="stat-value" id="malls">--</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 CityPulse. Smart City Information Dashboard. All Rights Reserved.</p>
+    </footer>
+
+    <script src="scripts/dashboard.js"></script>
+</body>
+</html>
