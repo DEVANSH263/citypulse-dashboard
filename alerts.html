@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CityPulse - City Alerts & News</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/alerts.css">
 </head>
@@ -16,7 +20,7 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Dashboard</a></li>
-                <li><a href="alerts.html" class="active">City Alerts</a></li>
+                <li><a href="alerts.html" class="active">City Alerts <span class="nav-badge">5</span></a></li>
                 <li><a href="map.html">City Map</a></li>
                 <li><a href="feedback.html">Feedback</a></li>
             </ul>
@@ -24,22 +28,27 @@
     </nav>
 
     <main class="container">
-        <header class="page-header">
+        <!-- 🌳 Illustrated Decorations -->
+        <div class="deco-tree">🌲</div>
+        <div class="deco-cloud">☁️</div>
+
+        <header class="page-header fade-in-up">
             <h1>City Alerts & News</h1>
-            <p class="subtitle">Stay informed about civic updates and public notices</p>
+            <p class="subtitle">Stay informed about civic updates 📢</p>
         </header>
 
-        <div class="controls-section">
+        <!-- 🎮 Filter Controls (Pixel Badge Style) -->
+        <div class="controls-section clay-card fade-in-up">
             <div class="filter-controls">
-                <button class="filter-btn active" data-category="all">All</button>
-                <button class="filter-btn" data-category="traffic">🚦 Traffic</button>
-                <button class="filter-btn" data-category="health">⚕️ Health</button>
-                <button class="filter-btn" data-category="weather">🌤️ Weather</button>
-                <button class="filter-btn" data-category="public">📢 Public Notices</button>
+                <button class="filter-btn btn btn-pixel btn-primary active" data-category="all">All ✨</button>
+                <button class="filter-btn btn btn-pixel btn-secondary" data-category="traffic">🚦 Traffic</button>
+                <button class="filter-btn btn btn-pixel btn-secondary" data-category="health">⚕️ Health</button>
+                <button class="filter-btn btn btn-pixel btn-secondary" data-category="weather">🌤️ Weather</button>
+                <button class="filter-btn btn btn-pixel btn-accent" data-category="public">📢 Public</button>
             </div>
             <div class="sort-controls">
-                <label for="sortSelect">Sort by:</label>
-                <select id="sortSelect">
+                <label for="sortSelect" style="font-weight: 600; color: var(--text-dark);">Sort by:</label>
+                <select id="sortSelect" class="clay-select">
                     <option value="newest">Newest First</option>
                     <option value="oldest">Oldest First</option>
                     <option value="priority">Priority</option>
@@ -47,8 +56,9 @@
             </div>
         </div>
 
-        <div class="alerts-container" id="alertsContainer">
-            <!-- Alerts will be dynamically loaded here -->
+        <!-- 📝 Sticky Notes Alerts Container -->
+        <div class="alerts-container fade-in-up" id="alertsContainer">
+            <!-- Alerts will be dynamically loaded here as sticky notes -->
         </div>
     </main>
 

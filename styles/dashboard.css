@@ -1,212 +1,636 @@
-/* ===================================
-   Dashboard Specific Styles
-   =================================== */
+/* 🎨 ================================================
+   🌱 DASHBOARD CREATIVE STYLES
+   Pastel Nature Clay UI with Pixel Accents
+   ================================================ 🎨 */
 
+/* ============================================
+   📅 DATETIME DISPLAY (Claymorphism)
+   ============================================ */
 .datetime-display {
-    background: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: var(--shadow-lg);
-    margin-bottom: 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
-.date {
+.datetime-display .date,
+.datetime-display .time {
     font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--primary-color);
+    font-weight: 700;
+    color: var(--text-dark);
 }
 
-.time {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--text-primary);
+.datetime-display .weather-mini {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.3rem;
+    padding: 8px 16px;
+    background: var(--peach-orange);
+    border-radius: 20px;
+    box-shadow: var(--clay-shadow);
 }
 
-/* ===================================
-   Dashboard Grid
-   =================================== */
-
+/* ============================================
+   📊 DASHBOARD GRID (Main Cards Layout)
+   ============================================ */
 .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
+/* ============================================
+   🎴 DATA CARDS (Individual Card Styles)
+   ============================================ */
 .data-card {
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--shadow-lg);
-    transition: var(--transition);
     position: relative;
-    overflow: hidden;
+    min-height: 250px;
+    animation: fadeInUp 0.6s ease-out backwards;
 }
 
-.data-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+.data-card:nth-child(1) { animation-delay: 0.1s; }
+.data-card:nth-child(2) { animation-delay: 0.2s; }
+.data-card:nth-child(3) { animation-delay: 0.3s; }
+.data-card:nth-child(4) { animation-delay: 0.4s; }
+.data-card:nth-child(5) { animation-delay: 0.5s; }
+.data-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Temperature Card - Peach gradient */
+.temperature-card::after {
+    background: linear-gradient(135deg, var(--peach-orange), var(--pastel-yellow)) !important;
 }
 
-.card-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+/* AQI Card - Mint gradient */
+.aqi-card::after {
+    background: linear-gradient(135deg, var(--mint-green), var(--leaf-green)) !important;
+}
+
+/* Traffic Card - Sky blue gradient */
+.traffic-card::after {
+    background: linear-gradient(135deg, var(--sky-blue), var(--lavender)) !important;
+}
+
+/* Population Card - Lavender gradient */
+.population-card::after {
+    background: linear-gradient(135deg, var(--lavender), var(--peach-orange)) !important;
+}
+
+/* Transport Card - Leaf green */
+.transport-card::after {
+    background: var(--leaf-green) !important;
+}
+
+/* Emergency Card - Light pink/peach */
+.emergency-card::after {
+    background: linear-gradient(135deg, #FFB8C1, var(--peach-orange)) !important;
+}
+
+/* ============================================
+   📝 CARD CONTENT
+   ============================================ */
+.card-content {
+    text-align: center;
 }
 
 .card-content h3 {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
 }
 
 .card-value {
     font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    font-weight: 900;
+    color: var(--text-dark);
+    margin: 1rem 0;
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
 }
 
 .card-subtitle {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
+    font-size: 1rem;
+    color: var(--text-medium);
+    margin-top: 0.5rem;
+    font-weight: 500;
 }
 
-/* ===================================
-   Card Visual Elements
-   =================================== */
-
+/* ============================================
+   📊 CARD VISUAL ELEMENTS
+   ============================================ */
 .card-visual {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 1;
 }
 
 /* Temperature Meter */
 .temp-meter {
-    height: 8px;
-    background: #e2e8f0;
-    border-radius: 10px;
+    width: 100%;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
     overflow: hidden;
+    box-shadow: var(--clay-shadow-inset);
 }
 
 .temp-fill {
     height: 100%;
-    background: linear-gradient(90deg, #3b82f6, #ef4444);
-    border-radius: 10px;
-    transition: width 0.5s ease;
+    background: linear-gradient(90deg, var(--sky-blue), var(--peach-orange));
+    border-radius: 20px;
+    transition: width 1s ease;
+    width: 0%;
 }
 
 /* AQI Meter */
 .aqi-meter {
-    height: 8px;
-    background: #e2e8f0;
-    border-radius: 10px;
+    width: 100%;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
     overflow: hidden;
+    box-shadow: var(--clay-shadow-inset);
 }
 
 .aqi-fill {
     height: 100%;
-    border-radius: 10px;
-    transition: width 0.5s ease;
-}
-
-.aqi-fill.good {
-    background: #10b981;
-}
-
-.aqi-fill.moderate {
-    background: #f59e0b;
-}
-
-.aqi-fill.unhealthy {
-    background: #ef4444;
+    background: linear-gradient(90deg, var(--leaf-green), var(--mint-green));
+    border-radius: 20px;
+    transition: width 1s ease;
+    width: 0%;
 }
 
 /* Traffic Bars */
 .traffic-bars {
     display: flex;
-    gap: 0.5rem;
+    justify-content: center;
     align-items: flex-end;
-    height: 50px;
+    gap: 8px;
+    height: 80px;
+    margin-bottom: 1rem;
 }
 
-.bar {
-    flex: 1;
-    background: var(--primary-color);
-    border-radius: 4px;
+.traffic-bars .bar {
+    width: 20px;
+    background: linear-gradient(180deg, var(--sky-blue), var(--lavender));
+    border-radius: 10px 10px 0 0;
     transition: height 0.5s ease;
-    min-height: 10px;
+    box-shadow: var(--clay-shadow);
+    position: relative;
 }
 
-/* ===================================
-   Stats Section
-   =================================== */
+.traffic-bars .bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--peach-orange);
+    border-radius: 10px 10px 0 0;
+}
 
+/* Live Vehicles */
+.live-vehicles {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.mini-vehicle {
+    font-size: 1.5rem;
+    animation: vehicleBounce 1s ease-in-out infinite;
+}
+
+.mini-vehicle:nth-child(1) { animation-delay: 0s; }
+.mini-vehicle:nth-child(2) { animation-delay: 0.2s; }
+.mini-vehicle:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes vehicleBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ============================================
+   🟢 ONLINE INDICATOR
+   ============================================ */
+.online-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1rem;
+}
+
+.pulse-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--leaf-green);
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
+    box-shadow: 0 0 10px var(--leaf-green);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+}
+
+.online-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--leaf-green);
+}
+
+/* ============================================
+   📊 STATS SECTION
+   ============================================ */
 .stats-section {
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--shadow-lg);
-    margin-bottom: 2rem;
-}
-
-.stats-section h2 {
-    margin-bottom: 1.5rem;
-    color: var(--text-primary);
+    margin: 4rem 0;
 }
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
 }
 
 .stat-item {
     text-align: center;
-    padding: 1.5rem;
-    background: var(--light-bg);
-    border-radius: 8px;
-    transition: var(--transition);
+    padding: 2rem 1.5rem;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.stat-item:hover {
-    transform: scale(1.05);
-    background: rgba(37, 99, 235, 0.1);
+.stat-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: iconFloat 3s ease-in-out infinite;
 }
+
+.stat-item:nth-child(1) .stat-icon { animation-delay: 0s; }
+.stat-item:nth-child(2) .stat-icon { animation-delay: 0.5s; }
+.stat-item:nth-child(3) .stat-icon { animation-delay: 1s; }
+.stat-item:nth-child(4) .stat-icon { animation-delay: 1.5s; }
 
 .stat-label {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
     margin-bottom: 0.5rem;
 }
 
 .stat-value {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--primary-color);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--leaf-green);
+    margin: 0.5rem 0;
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
 }
 
-/* ===================================
-   Responsive Design
-   =================================== */
+.stat-detail {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    margin-top: 0.5rem;
+}
 
+/* ============================================
+   📡 ACTIVITY FEED
+   ============================================ */
+.activity-feed {
+    margin: 3rem 0;
+    padding: 2rem;
+}
+
+.activity-stream {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    box-shadow: var(--clay-shadow-inset);
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    box-shadow: var(--clay-shadow);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.activity-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: var(--leaf-green);
+}
+
+.activity-item:hover {
+    transform: translateX(5px);
+    box-shadow: var(--clay-shadow-hover);
+}
+
+.activity-icon {
+    font-size: 2rem;
+    min-width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--mint-green), var(--sky-blue));
+    box-shadow: var(--clay-shadow);
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-title {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.activity-time {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* Custom Scrollbar for Activity Feed */
+.activity-stream::-webkit-scrollbar {
+    width: 8px;
+}
+
+.activity-stream::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.activity-stream::-webkit-scrollbar-thumb {
+    background: var(--leaf-green);
+    border-radius: 10px;
+    box-shadow: var(--clay-shadow);
+}
+
+.activity-stream::-webkit-scrollbar-thumb:hover {
+    background: var(--earth-brown);
+}
+
+/* ============================================
+   📱 RESPONSIVE DESIGN
+   ============================================ */
 @media (max-width: 768px) {
-    .datetime-display {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-
     .dashboard-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .datetime-display {
+        flex-direction: column;
+        gap: 1rem;
     }
 
     .card-value {
         font-size: 2rem;
     }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+
+    .activity-item {
+        flex-direction: column;
+        text-align: center;
+    }
 }
+
+@media (max-width: 480px) {
+    .data-card {
+        min-height: 200px;
+    }
+
+    .card-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .card-value {
+        font-size: 1.8rem;
+    }
+
+    .illustrated-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    .stat-icon {
+        font-size: 2.5rem;
+    }
+}
+
+/* ============================================
+   🎭 SPECIAL ANIMATIONS
+   ============================================ */
+
+/* Card entrance animation */
+@keyframes cardEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9) rotate(-2deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+}
+
+/* Stat counter animation */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   ✨ ENHANCED HOVER EFFECTS & MICRO-INTERACTIONS
+   ============================================ */
+
+/* Card icon rotation on hover */
+.data-card:hover .illustrated-icon {
+    animation: iconWiggle 0.5s ease-in-out;
+}
+
+@keyframes iconWiggle {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(-10deg); }
+    75% { transform: translateY(-5px) rotate(10deg); }
+}
+
+/* Badge shine effect on hover */
+.badge-pixel:hover {
+    animation: badgeShine 0.6s ease-in-out;
+}
+
+@keyframes badgeShine {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
+}
+
+/* Meter glow on value update */
+.temp-fill,
+.aqi-fill {
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.temp-fill::after,
+.aqi-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8));
+    animation: shimmerMove 2s linear infinite;
+}
+
+@keyframes shimmerMove {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+}
+
+/* Interactive stats on hover */
+.stat-item:hover {
+    transform: translateY(-8px) rotate(1deg) scale(1.05);
+    box-shadow: 
+        15px 15px 30px rgba(163, 177, 198, 0.4),
+        -15px -15px 30px rgba(255, 255, 255, 0.95);
+}
+
+.stat-item:hover .stat-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.stat-item:hover .stat-value {
+    color: var(--peach-orange);
+    text-shadow: 3px 3px 0px rgba(255, 255, 255, 0.7);
+}
+
+/* Activity item entrance animation */
+.activity-item {
+    animation: slideInRight 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Live vehicles bounce */
+.mini-vehicle {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.mini-vehicle:hover {
+    transform: translateY(-15px) scale(1.3);
+    cursor: pointer;
+}
+
+/* Pulse dot enhancement */
+.pulse-dot {
+    position: relative;
+}
+
+.pulse-dot::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--leaf-green);
+    animation: pulseRing 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   📱 IMPROVED MOBILE INTERACTIONS
+   ============================================ */
+
+@media (hover: none) and (pointer: coarse) {
+    /* Touch-friendly interactions for mobile */
+    .data-card {
+        transition: transform 0.2s;
+    }
+    
+    .data-card:active {
+        transform: scale(0.98);
+    }
+    
+    /* Increase tap target sizes */
+    .nav-menu a {
+        min-height: 44px;
+        padding: 12px 20px;
+    }
+    
+    .badge {
+        min-height: 32px;
+        padding: 8px 16px;
+    }
+}
+
+/* ============================================
+   🎉 END OF DASHBOARD CREATIVE STYLES
+   ============================================ */

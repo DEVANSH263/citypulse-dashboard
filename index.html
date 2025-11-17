@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CityPulse - Home Dashboard</title>
+    <!-- Google Fonts for Better Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/dashboard.css">
 </head>
 <body>
-    <nav class="navbar">
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-logo">
                 <span class="logo-icon">🏙️</span>
@@ -16,32 +21,48 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html" class="active">Dashboard</a></li>
-                <li><a href="alerts.html">City Alerts</a></li>
+                <li><a href="alerts.html">City Alerts <span class="nav-badge">5</span></a></li>
                 <li><a href="map.html">City Map</a></li>
                 <li><a href="feedback.html">Feedback</a></li>
             </ul>
         </div>
     </nav>
 
-    <main class="container">
-        <header class="page-header">
-            <h1>Smart City Dashboard</h1>
-            <p class="subtitle">Real-time civic awareness and data visualization</p>
+    <main class="container" id="main-content">
+        <!-- 🌳 Illustrated Decorations -->
+        <div class="deco-tree" aria-hidden="true">🌲</div>
+        <div class="deco-cloud" aria-hidden="true">☁️</div>
+        
+        <!-- Cityscape decoration -->
+        <div class="cityscape-decoration" aria-hidden="true"></div>
+
+        <header class="page-header fade-in-up">
+            <h1>Live City Dashboard</h1>
+            <p class="subtitle">Your city's pulse in real-time 💚</p>
         </header>
 
-        <div class="datetime-display">
+        <!-- 🕐 DateTime Display (Claymorphism Style) -->
+        <div class="datetime-display clay-card fade-in-up">
             <div class="date" id="currentDate"></div>
             <div class="time" id="currentTime"></div>
+            <div class="weather-mini">
+                <span id="weatherIcon">🌤️</span>
+                <span id="tempMini">24°C</span>
+            </div>
         </div>
 
-        <section class="dashboard-grid">
+        <!-- 📊 Main Dashboard Grid (Floating Clay Cards) -->
+        <section class="dashboard-grid fade-in-up">
             <!-- Temperature Card -->
-            <div class="data-card temperature-card">
-                <div class="card-icon">🌡️</div>
+            <div class="data-card clay-card temperature-card animate-tilt" data-tooltip="Current city temperature">
+                <div class="illustrated-icon icon-weather">☀️</div>
                 <div class="card-content">
                     <h3>Temperature</h3>
-                    <div class="card-value" id="temperature">--°C</div>
+                    <div class="card-value" id="temperature">
+                        <span class="skeleton skeleton-value"></span>
+                    </div>
                     <div class="card-subtitle" id="tempDesc">Loading...</div>
+                    <span class="badge badge-pixel badge-info">Live</span>
                 </div>
                 <div class="card-visual">
                     <div class="temp-meter">
@@ -51,12 +72,13 @@
             </div>
 
             <!-- Air Quality Card -->
-            <div class="data-card aqi-card">
-                <div class="card-icon">💨</div>
+            <div class="data-card clay-card aqi-card animate-tilt" data-tooltip="Air Quality Index (AQI)">
+                <div class="illustrated-icon icon-air">🍃</div>
                 <div class="card-content">
-                    <h3>Air Quality Index</h3>
-                    <div class="card-value" id="aqi">--</div>
+                    <h3>Air Quality</h3>
+                    <div class="card-value" id="aqi"><span class="skeleton skeleton-value"></span></div>
                     <div class="card-subtitle" id="aqiDesc">Loading...</div>
+                    <span class="badge badge-pixel badge-success">Good</span>
                 </div>
                 <div class="card-visual">
                     <div class="aqi-meter">
@@ -66,12 +88,13 @@
             </div>
 
             <!-- Traffic Card -->
-            <div class="data-card traffic-card">
-                <div class="card-icon">🚦</div>
+            <div class="data-card clay-card traffic-card animate-tilt" data-tooltip="Current traffic conditions">
+                <div class="illustrated-icon icon-traffic">🚗</div>
                 <div class="card-content">
                     <h3>Traffic Density</h3>
-                    <div class="card-value" id="traffic">--</div>
+                    <div class="card-value" id="traffic"><span class="skeleton skeleton-text"></span></div>
                     <div class="card-subtitle" id="trafficDesc">Loading...</div>
+                    <span class="badge badge-pixel badge-warning">Active</span>
                 </div>
                 <div class="card-visual">
                     <div class="traffic-bars">
@@ -81,22 +104,31 @@
                         <div class="bar" id="bar4"></div>
                         <div class="bar" id="bar5"></div>
                     </div>
+                    <div class="live-vehicles">
+                        <span class="mini-vehicle">🚗</span>
+                        <span class="mini-vehicle">🚌</span>
+                        <span class="mini-vehicle">🚕</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Population Card -->
-            <div class="data-card population-card">
-                <div class="card-icon">👥</div>
+            <div class="data-card clay-card population-card animate-tilt">
+                <div class="illustrated-icon icon-news">👥</div>
                 <div class="card-content">
-                    <h3>Population</h3>
+                    <h3>Active Population</h3>
                     <div class="card-value" id="population">--</div>
-                    <div class="card-subtitle">Active Citizens</div>
+                    <div class="card-subtitle">Citizens Online</div>
+                    <div class="online-indicator">
+                        <span class="pulse-dot"></span>
+                        <span class="online-text">Live Now</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Public Transport Card -->
-            <div class="data-card transport-card">
-                <div class="card-icon">🚌</div>
+            <div class="data-card clay-card transport-card animate-tilt">
+                <div class="illustrated-icon icon-traffic">🚌</div>
                 <div class="card-content">
                     <h3>Public Transport</h3>
                     <div class="card-value" id="transport">--</div>
@@ -105,35 +137,53 @@
             </div>
 
             <!-- Emergency Services Card -->
-            <div class="data-card emergency-card">
-                <div class="card-icon">🚨</div>
+            <div class="data-card clay-card emergency-card animate-tilt">
+                <div class="illustrated-icon icon-weather">🚨</div>
                 <div class="card-content">
                     <h3>Emergency Services</h3>
                     <div class="card-value" id="emergency">All Clear</div>
                     <div class="card-subtitle">24/7 Available</div>
+                    <span class="badge badge-pixel badge-success">✓ Ready</span>
                 </div>
             </div>
         </section>
 
-        <section class="stats-section">
-            <h2>City Statistics Overview</h2>
+        <!-- 💓 City Heartbeat Section -->
+        <section class="stats-section fade-in-up">
+            <h2 class="text-center" style="font-size: 2.5rem; margin-bottom: 2rem; color: var(--text-dark);">City Heartbeat 💓</h2>
             <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-label">Parks & Recreation</div>
+                <div class="stat-item clay-card animate-float">
+                    <div class="stat-icon">🌳</div>
+                    <div class="stat-label">Parks & Green Spaces</div>
                     <div class="stat-value" id="parks">--</div>
+                    <div class="stat-detail">Open Now</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-label">Hospitals</div>
+                <div class="stat-item clay-card animate-float">
+                    <div class="stat-icon">🏥</div>
+                    <div class="stat-label">Medical Centers</div>
                     <div class="stat-value" id="hospitals">--</div>
+                    <div class="stat-detail">24/7 Emergency</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-label">Schools</div>
+                <div class="stat-item clay-card animate-float">
+                    <div class="stat-icon">🎓</div>
+                    <div class="stat-label">Educational Hubs</div>
                     <div class="stat-value" id="schools">--</div>
+                    <div class="stat-detail">Active Sessions</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-label">Shopping Centers</div>
+                <div class="stat-item clay-card animate-float">
+                    <div class="stat-icon">🏬</div>
+                    <div class="stat-label">Shopping Districts</div>
                     <div class="stat-value" id="malls">--</div>
+                    <div class="stat-detail">Bustling Activity</div>
                 </div>
+            </div>
+        </section>
+
+        <!-- 📡 Live Activity Feed -->
+        <section class="activity-feed clay-card fade-in-up">
+            <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--text-dark);">Live City Activity 📡</h2>
+            <div class="activity-stream" id="activityStream">
+                <!-- Activities will be dynamically added here -->
             </div>
         </section>
     </main>

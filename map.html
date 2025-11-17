@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CityPulse - Interactive City Map</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/map.css">
 </head>
@@ -16,7 +20,7 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Dashboard</a></li>
-                <li><a href="alerts.html">City Alerts</a></li>
+                <li><a href="alerts.html">City Alerts <span class="nav-badge">5</span></a></li>
                 <li><a href="map.html" class="active">City Map</a></li>
                 <li><a href="feedback.html">Feedback</a></li>
             </ul>
@@ -24,32 +28,74 @@
     </nav>
 
     <main class="container">
-        <header class="page-header">
+        <!-- 🌳 Illustrated Decorations -->
+        <div class="deco-tree">🌲</div>
+        <div class="deco-cloud">☁️</div>
+
+        <header class="page-header fade-in-up">
             <h1>Interactive City Map</h1>
-            <p class="subtitle">Explore city zones and facilities</p>
+            <p class="subtitle">Explore city zones & facilities 🗺️</p>
         </header>
 
-        <div class="map-legend">
-            <h3>Map Legend</h3>
+        <!-- 🎨 Map Legend (Claymorphism Cards) -->
+        <div class="map-legend clay-card fade-in-up">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-dark); text-align: center;">Map Legend 🧭</h3>
             <div class="legend-items">
-                <div class="legend-item"><span class="legend-color parks"></span> Parks & Recreation</div>
-                <div class="legend-item"><span class="legend-color hospitals"></span> Hospitals</div>
-                <div class="legend-item"><span class="legend-color schools"></span> Schools</div>
-                <div class="legend-item"><span class="legend-color malls"></span> Shopping Centers</div>
-                <div class="legend-item"><span class="legend-color transport"></span> Transport Hubs</div>
-                <div class="legend-item"><span class="legend-color government"></span> Government</div>
+                <div class="legend-item">
+                    <span class="legend-icon">🌳</span>
+                    <span class="legend-text">Parks & Recreation</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">🏥</span>
+                    <span class="legend-text">Hospitals</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">🎓</span>
+                    <span class="legend-text">Schools</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">🏬</span>
+                    <span class="legend-text">Shopping Centers</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">🚇</span>
+                    <span class="legend-text">Transport Hubs</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon">🏛️</span>
+                    <span class="legend-text">Government</span>
+                </div>
             </div>
         </div>
 
         <div class="map-container">
             <svg class="city-map" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-                <!-- Grid Background -->
+                <!-- Animated Background -->
                 <defs>
                     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
                         <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
                     </pattern>
+                    <linearGradient id="roadGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#696969;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#808080;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#696969;stop-opacity:1" />
+                    </linearGradient>
                 </defs>
+                
+                <!-- Sky/Background -->
                 <rect width="800" height="600" fill="url(#grid)" />
+                
+                <!-- Roads -->
+                <rect class="road horizontal" x="0" y="200" width="800" height="30" fill="url(#roadGradient)" opacity="0.3"/>
+                <rect class="road vertical" x="400" y="0" width="30" height="600" fill="url(#roadGradient)" opacity="0.3"/>
+                <rect class="road horizontal" x="0" y="400" width="800" height="30" fill="url(#roadGradient)" opacity="0.3"/>
+                
+                <!-- Animated Cars on Roads -->
+                <g class="traffic-overlay">
+                    <text class="moving-car car-h-1" x="0" y="217" font-size="20">🚗</text>
+                    <text class="moving-car car-h-2" x="0" y="417" font-size="20">🚕</text>
+                    <text class="moving-car car-v-1" x="410" y="0" font-size="20">🚙</text>
+                </g>
                 
                 <!-- Central Park -->
                 <rect class="zone parks" data-zone="central-park" x="50" y="50" width="200" height="150" />
@@ -86,16 +132,17 @@
             </svg>
         </div>
 
-        <!-- Modal for Zone Details -->
+        <!-- 🎭 Modal for Zone Details (Claymorphism Popup) -->
         <div class="modal" id="zoneModal">
-            <div class="modal-content">
-                <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-content clay-card">
+                <button class="modal-close btn btn-pixel btn-accent" id="modalClose">✖</button>
                 <div class="modal-header">
-                    <h2 id="zoneName">Zone Name</h2>
-                    <span class="zone-category" id="zoneCategory">Category</span>
+                    <div class="illustrated-icon icon-air" style="margin: 0 auto 1rem;">📍</div>
+                    <h2 id="zoneName" style="color: var(--text-dark); font-size: 2rem;">Zone Name</h2>
+                    <span class="badge badge-pixel badge-info" id="zoneCategory">Category</span>
                 </div>
                 <div class="modal-body">
-                    <p id="zoneDescription">Description</p>
+                    <p id="zoneDescription" style="font-size: 1.1rem; color: var(--text-medium); margin: 1.5rem 0;"></p>
                     <div class="zone-details">
                         <div class="detail-item">
                             <strong>📍 Address:</strong>

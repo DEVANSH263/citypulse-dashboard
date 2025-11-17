@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CityPulse - Feedback & Citizen Connect</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/feedback.css">
 </head>
@@ -16,7 +20,7 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Dashboard</a></li>
-                <li><a href="alerts.html">City Alerts</a></li>
+                <li><a href="alerts.html">City Alerts <span class="nav-badge">5</span></a></li>
                 <li><a href="map.html">City Map</a></li>
                 <li><a href="feedback.html" class="active">Feedback</a></li>
             </ul>
@@ -24,28 +28,33 @@
     </nav>
 
     <main class="container">
-        <header class="page-header">
+        <!-- 🌳 Illustrated Decorations -->
+        <div class="deco-tree">🌲</div>
+        <div class="deco-cloud">☁️</div>
+
+        <header class="page-header fade-in-up">
             <h1>Feedback & Citizen Connect</h1>
-            <p class="subtitle">Share your thoughts and help improve our city</p>
+            <p class="subtitle">Let's talk! Share your thoughts 💬</p>
         </header>
 
         <div class="feedback-container">
-            <div class="feedback-info">
-                <h2>We Value Your Voice</h2>
-                <p>Your feedback helps us build a better, smarter city. Share your opinions, report issues, or suggest improvements.</p>
+            <div class="feedback-info clay-card fade-in-up">
+                <div class="illustrated-icon icon-news" style="margin-bottom: 1rem;">💬</div>
+                <h2 style="color: var(--text-dark); font-size: 2rem; margin-bottom: 1rem;">We Value Your Voice</h2>
+                <p style="font-size: 1.1rem; color: var(--text-medium); line-height: 1.6;">Your feedback helps us build a better, smarter city. Share your opinions, report issues, or suggest improvements.</p>
                 
                 <div class="info-cards">
-                    <div class="info-card">
+                    <div class="info-card clay-card animate-float">
                         <div class="info-icon">📧</div>
                         <h3>Email Us</h3>
                         <p>contact@citypulse.gov</p>
                     </div>
-                    <div class="info-card">
+                    <div class="info-card clay-card animate-float">
                         <div class="info-icon">📞</div>
                         <h3>Call Us</h3>
                         <p>1-800-CITY-PULSE</p>
                     </div>
-                    <div class="info-card">
+                    <div class="info-card clay-card animate-float">
                         <div class="info-icon">🕒</div>
                         <h3>Response Time</h3>
                         <p>Within 24-48 hours</p>
@@ -53,73 +62,74 @@
                 </div>
 
                 <div class="social-connect">
-                    <h3>Connect With Us</h3>
+                    <h3 style="font-size: 1.5rem; color: var(--text-dark); margin: 2rem 0 1rem;">Connect With Us ✨</h3>
                     <div class="social-links">
-                        <a href="#" class="social-btn facebook">📘 Facebook</a>
-                        <a href="#" class="social-btn twitter">🐦 Twitter</a>
-                        <a href="#" class="social-btn instagram">📷 Instagram</a>
-                        <a href="#" class="social-btn linkedin">💼 LinkedIn</a>
+                        <a href="#" class="social-btn btn btn-pixel btn-secondary">📘 Facebook</a>
+                        <a href="#" class="social-btn btn btn-pixel btn-accent">🐦 Twitter</a>
+                        <a href="#" class="social-btn btn btn-pixel btn-primary">📷 Instagram</a>
+                        <a href="#" class="social-btn btn btn-pixel btn-secondary">💼 LinkedIn</a>
                     </div>
                 </div>
             </div>
 
-            <div class="feedback-form-container">
+            <div class="feedback-form-container clay-card fade-in-up">
                 <form id="feedbackForm" class="feedback-form">
-                    <h2>Submit Your Feedback</h2>
+                    <div class="illustrated-icon icon-air" style="margin-bottom: 1rem;">✍️</div>
+                    <h2 style="color: var(--text-dark); font-size: 2rem; margin-bottom: 2rem;">Submit Your Feedback</h2>
                     
                     <div class="form-group">
                         <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        <input type="text" id="name" name="name" class="clay-input" placeholder="Enter your full name" required>
                         <span class="error-message" id="nameError"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        <input type="email" id="email" name="email" class="clay-input" placeholder="your.email@example.com" required>
                         <span class="error-message" id="emailError"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="category">Category</label>
-                        <select id="category" name="category">
+                        <select id="category" name="category" class="clay-select">
                             <option value="general">General Feedback</option>
-                            <option value="traffic">Traffic & Transportation</option>
-                            <option value="health">Health Services</option>
-                            <option value="environment">Environment</option>
-                            <option value="infrastructure">Infrastructure</option>
-                            <option value="complaint">Complaint</option>
-                            <option value="suggestion">Suggestion</option>
+                            <option value="traffic">🚦 Traffic & Transportation</option>
+                            <option value="health">⚕️ Health Services</option>
+                            <option value="environment">🌱 Environment</option>
+                            <option value="infrastructure">🏗️ Infrastructure</option>
+                            <option value="complaint">😟 Complaint</option>
+                            <option value="suggestion">💡 Suggestion</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label for="message">Your Message *</label>
-                        <textarea id="message" name="message" rows="6" placeholder="Tell us what's on your mind..." required></textarea>
+                        <textarea id="message" name="message" rows="6" class="clay-textarea" placeholder="Tell us what's on your mind..." required></textarea>
                         <span class="error-message" id="messageError"></span>
                     </div>
 
-                    <button type="submit" class="submit-btn">Submit Feedback</button>
+                    <button type="submit" class="submit-btn btn btn-pixel btn-primary">Submit Feedback ✓</button>
                 </form>
             </div>
         </div>
     </main>
 
-    <!-- Success Modal -->
+    <!-- 🎉 Success Modal (Claymorphism Popup with Pixel Checkmark) -->
     <div class="modal" id="successModal">
-        <div class="modal-content success-modal">
-            <div class="success-icon">✓</div>
-            <h2>Thank You!</h2>
-            <p>Your feedback has been successfully submitted. We appreciate your input and will review it shortly.</p>
+        <div class="modal-content success-modal clay-card">
+            <div class="success-icon illustrated-icon icon-weather">✓</div>
+            <h2 style="color: var(--text-dark); font-size: 2.5rem; margin: 1rem 0;">Thank You! 🎉</h2>
+            <p style="font-size: 1.2rem; color: var(--text-medium); margin: 1rem 0;">Your feedback has been successfully submitted. We appreciate your input and will review it shortly.</p>
             <div class="modal-social">
-                <p>Stay connected with us:</p>
+                <p style="font-weight: 600; color: var(--text-dark); margin: 2rem 0 1rem;">Stay connected with us:</p>
                 <div class="modal-social-links">
-                    <a href="#" class="modal-social-btn">📘</a>
-                    <a href="#" class="modal-social-btn">🐦</a>
-                    <a href="#" class="modal-social-btn">📷</a>
-                    <a href="#" class="modal-social-btn">💼</a>
+                    <a href="#" class="modal-social-btn badge badge-pixel badge-info">📘</a>
+                    <a href="#" class="modal-social-btn badge badge-pixel badge-warning">🐦</a>
+                    <a href="#" class="modal-social-btn badge badge-pixel badge-success">📷</a>
+                    <a href="#" class="modal-social-btn badge badge-pixel badge-info">💼</a>
                 </div>
             </div>
-            <button class="modal-close-btn" id="closeSuccessModal">Close</button>
+            <button class="modal-close-btn btn btn-pixel btn-primary" id="closeSuccessModal">Close ✓</button>
         </div>
     </div>
 
