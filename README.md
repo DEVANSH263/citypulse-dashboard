@@ -4,6 +4,9 @@
 
 CityPulse is an interactive, client-side smart city dashboard that provides real-time civic awareness, data visualization, and citizen engagement. Built entirely with HTML, CSS, and JavaScript, this project simulates a modern urban data portal allowing users to explore public information such as weather, alerts, and facilities interactively.
 
+## Link TO Website
+https://devansh263.github.io/citypulse-dashboard/
+
 ## Features
 
 ### Page 1: Home Dashboard (`index.html`)
